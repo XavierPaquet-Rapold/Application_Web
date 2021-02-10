@@ -116,6 +116,9 @@ app.get('/creation', function (req, res) {
             });
         });
 });
+
+
+
 /**
  * post methode to date : pour ajouter un utilisateur a la BD
  */
