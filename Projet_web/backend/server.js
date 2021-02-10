@@ -116,8 +116,13 @@ app.get('/creation', function (req, res) {
             });
         });
 });
-
+/**
+ * post methode to date : pour ajouter un utilisateur a la BD
+ */
 app.post('/creation', function (req,res){
+    /**
+     * get the record base on ID
+     */
     var query = "INSERT INTO utilisateur(prenom, nom, email, mot_de_passe, tel, adresse, ville, code_postale) VALUES(";
     query += " '"+req.body.Prenom+"',"; 
     query += " '"+req.body.Nom+"',"; 
