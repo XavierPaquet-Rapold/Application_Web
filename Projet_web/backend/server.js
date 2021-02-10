@@ -116,3 +116,19 @@ app.get('/creation', function (req, res) {
             });
         });
 });
+
+app.post('/creation', function (req,res){
+    var query = "INSERT INTO utilisateur(prenom, nom, email, mot_de_passe, tel, adresse, ville, code_postale) VALUES(";
+    query += " '"+req.body.Prenom+"',"; 
+    query += " '"+req.body.Nom+"',"; 
+    query += " '"+req.body.email+"',"; 
+    query += " '"+req.body.password+"',"; 
+    query += " '"+req.body.adresse+"',";
+    query += " '"+req.body.ville+"',";
+    query += " '"+req.body.Code-Postale+"')";
+    
+    con.query(query, function(err,result){
+        if(err) throw err;
+        res.redirect(baseURL);
+    });
+});

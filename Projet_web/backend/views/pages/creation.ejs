@@ -3,15 +3,33 @@
     <form action="/creation">
 
         <h1>Créer un compte</h1>
-        <label><b>Nom d'utilisateur</b></label> <input type = "text" name="username" required>
 
-        <label><b>Prenom</b></label> <input type = "text" name = "name" required>
+        <label for ="Prenom"><b>Prenom</b></label> 
+        <input type = "text" id= "Prenom" name = "Prenom" required>
 
-        <label><b>Nom</b></label> <input type = "text" name = "name" required>
+        <label for="Nom"><b>Nom</b></label> 
+        <input type = "text" id= "Nom" name = "Nom" required>
 
-        <label><b>Courriel</b></label> <input type = "email" name = "email" required>
+        <label for="Courriel"><b>Courriel</b></label> 
+        <input type = "email" id="email" name = "email" required>
 
-        <label><b>Mot de passe</b></label> <input type ="password" name ="password" required>
+        <label for="Mot-de-passe"><b>Mot de passe</b></label> 
+        <input type ="password" id ="password" name ="password" required>
+
+
+        <label for="Telephone"><b>Telephone</b></label> 
+        <input type ="number" id="tel" name ="tel">
+
+        <label for="Adresse"><b>Adresse</b></label> 
+        <input type ="text" id="Adresse"name ="Adresse">
+
+        <label for="ville"><b>Ville</b></label> 
+        <input type ="text" id= "ville" name ="ville">
+
+        <label for="Code Postale"><b>Code Postale</b></label> 
+        <input type ="text" id="Code-Postale" name ="Code-Postale">
+
+
 
         <input type = "submit" id= 'submit' value = "Créer un compte">
 
