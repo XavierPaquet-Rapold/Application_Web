@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="panier" directorySegmentName="seg_0" id="78058C83-90FE-F31E-94E2-DAE9445265EB">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:06:25 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>27BA0BC1-4CF5-7D3A-0A37-EFEDBC700D67</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F008854F-D105-31EF-CFEB-A29EC12047F1</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
