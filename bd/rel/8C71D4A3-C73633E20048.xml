@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="8C71D4A3-7C70-6FCB-81D8-C73633E20048" mainViewID="938E8DCD-887A-0069-C38D-27E7368215EE">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:16 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+</relationalModel>

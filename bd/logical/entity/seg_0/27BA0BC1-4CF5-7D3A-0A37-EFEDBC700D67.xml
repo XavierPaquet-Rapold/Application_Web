@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="27BA0BC1-4CF5-7D3A-0A37-EFEDBC700D67" name="produit">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:09 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_produit" id="9034358F-CBB1-6A6C-3ADB-B2BD15550BE2">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:17 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,0,7</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nom" id="23BF0F87-0A2B-679B-1466-0FBCD669B3A7">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:29 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prix" id="720C9EDD-9F3B-6E3A-D7EC-739180087808">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:40:31 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<ownDataTypeParameters>,2,5</ownDataTypeParameters>
+</Attribute>
+<Attribute name="modele" id="966ED089-739C-6130-5E75-A6012195B3FE">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:41:27 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="marque" id="15C0EA6D-CB68-B711-358B-B0812CFE2883">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:42:00 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="image" id="B95FD985-C040-D893-9470-AD8651BDA6D8">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:42:39 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_catégorie" id="E7FD680B-C8C7-7023-8006-E2F743DF34E5">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:07:27 UTC</createdTime>
+<generatorID>9C378F3C-9373-7B30-883B-E7533D5A0354</generatorID>
+<ownerDesignName>BD</ownerDesignName>
+<referedAttribute>6F83BCB6-DE32-6961-874F-688B3B6ADE9C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C23CBF97-F883-87FB-92A9-617F0F6698E7" name="produit PK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:26 UTC</createdTime>
+<ownerDesignName>BD</ownerDesignName>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9034358F-CBB1-6A6C-3ADB-B2BD15550BE2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
