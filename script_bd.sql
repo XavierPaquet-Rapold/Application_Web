@@ -130,3 +130,59 @@ INSERT INTO `produit` (`id_produit`, `nom`, `prix`, `description`, `marque`, `im
 INSERT INTO `produit` (`id_produit`, `nom`, `prix`, `description`, `marque`, `image`, `produit_catégorie_id_catégorie`) VALUES 
 	(NULL, 'Iphone 12', '1299.99', 'Let the fun begin with the iPhone 12. It features the powerful A14 Bionic chip, 5G to download and stream high-quality video. Other features include incredible low-light photography.', 'Apple', '/images/telephones/iphone-12.png', '6'), 
 	(NULL, 'Nokia 3310', '9999.99', 'Téléphone indestructible. Veuillez ne pas l\'échapper, sinon la Terre va être détruite et le téléphone restera intact. Ce téléphone fonctionnera plus longtemps que vous et vos enfants combiné.', 'Nokia', '/images/telephones/nokia3310.jpg', '6');
+
+INSERT INTO `magasin` (`id_magasin`, `nom`, `adresse`, `ville`, `code_postale`, `tel`) VALUES 
+	(NULL, 'Centre-Principal', '10555 avenue du Bois-de-Boulogne', 'Montréal', 'H4N1L4', '5143323000'), 
+	(NULL, 'Sainte-Marie-aux-Mines ', '1015 Rue Du Marché Central', 'Montreal', 'H4N3J8', '5143811251');
+INSERT INTO `magasin` (`id_magasin`, `nom`, `adresse`, `ville`, `code_postale`, `tel`) VALUES 
+	(NULL, 'l\'Emmental', '4777 Pierre-de Coubertin Avenue', 'Montreal', 'H1V1B3', '5148683000'), 
+	(NULL, 'Porte de l\'enfer', '9555 Boulevard du Golf', 'Anjou', 'H1J2Y2', '5143535353') ;
+	
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('1', '1', '81'), ('1', '2', '29'), ('1', '3', '18'), ('1', '4', '58');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('2', '1', '79'), ('2', '2', '93'), ('2', '3', '80'), ('2', '4', '41');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('3', '1', '13'), ('3', '2', '32'), ('3', '3', '77'), ('3', '4', '75');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('4', '1', '77'), ('4', '2', '66'), ('4', '3', '9'), ('4', '4', '60');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('5', '1', '58'), ('5', '2', '95'), ('5', '3', '68'), ('5', '4', '95');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('6', '1', '62'), ('6', '2', '46'), ('6', '3', '82'), ('6', '4', '80');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('7', '1', '89'), ('7', '2', '25'), ('7', '3', '33'), ('7', '4', '82');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('8', '1', '97'), ('8', '2', '9'), ('8', '3', '29'), ('8', '4', '43');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('9', '1', '34'), ('9', '2', '15'), ('9', '3', '61'), ('9', '4', '68');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('10', '1', '65'), ('10', '2', '79'), ('10', '3', '35'), ('10', '4', '61');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('11', '1', '69'), ('11', '2', '76'), ('11', '3', '38'), ('11', '4', '50');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('12', '1', '21'), ('12', '2', '43'), ('12', '3', '89'), ('12', '4', '1');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('13', '1', '79'), ('13', '2', '52'), ('13', '3', '59'), ('13', '4', '19');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('14', '1', '32'), ('14', '2', '20'), ('14', '3', '50'), ('14', '4', '35');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('15', '1', '47'), ('15', '2', '38'), ('15', '3', '68'), ('15', '4', '54');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('16', '1', '59'), ('16', '2', '98'), ('16', '3', '44'), ('16', '4', '4');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('17', '1', '3'), ('17', '2', '33'), ('17', '3', '41'), ('17', '4', '61');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('18', '1', '5'), ('18', '2', '40'), ('18', '3', '94'), ('18', '4', '78');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('19', '1', '60'), ('19', '2', '6'), ('19', '3', '26'), ('19', '4', '86');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('20', '1', '8'), ('20', '2', '32'), ('20', '3', '58'), ('20', '4', '45');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('21', '1', '36'), ('21', '2', '32'), ('21', '3', '3'), ('21', '4', '44');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('22', '1', '49'), ('22', '2', '9'), ('22', '3', '11'), ('22', '4', '13');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('23', '1', '65'), ('23', '2', '25'), ('23', '3', '21'), ('23', '4', '27');
+INSERT INTO `inventaire` (`produit_id_produit`, `magasin_id_magasin`, `nombre`) VALUES
+	('24', '1', '10'), ('24', '2', '80'), ('24', '3', '1'), ('24', '4', '71');
