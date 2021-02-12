@@ -32,7 +32,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "mybd"
+    database: "electrolux"
 });
 
 
@@ -126,17 +126,19 @@ app.post('/creation', function (req,res){
     /**
      * get the record base on ID
      */
-    var query = "INSERT INTO utilisateur(prenom, nom, email, mot_de_passe, tel, adresse, ville, code_postale) VALUES(";
-    query += " '"+req.body.Prenom+"',"; 
-    query += " '"+req.body.Nom+"',"; 
-    query += " '"+req.body.email+"',"; 
-    query += " '"+req.body.password+"',"; 
-    query += " '"+req.body.adresse+"',";
-    query += " '"+req.body.ville+"',";
-    query += " '"+req.body.Code-Postale+"')";
+    var query = "INSERT INTO utilisateur(email,tel,nom,prenom,addresse, ville, code_postale, mot_de_passe) VALUES(";
+        query += " '"+req.body.email+"',"; 
+        query += " '"+req.body.tel+"',"; 
+        query += " '"+req.body.Nom+"',"; 
+        query += " '"+req.body.Prenom+"',";
+        query += " '"+req.body.adresse+"',"; 
+        query += " '"+req.body.ville+"',";
+        query += " '"+req.body.Postale+"',";
+        query += " '"+req.body.password+"')";
+       
     
     con.query(query, function(err,result){
         if(err) throw err;
         res.redirect(baseURL);
     });
-}); 
+});
