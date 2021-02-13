@@ -18,6 +18,8 @@ var server = app.listen(4000, function () {
 app.use(bodyParser.urlencoded({ extended: true }));
 module.exports = app;
 
+app.use( express.static( "views" ) );
+
 app.set('view engine', 'ejs');
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
