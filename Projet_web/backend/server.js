@@ -34,12 +34,12 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "electrolux"
+    database: "db_site"
 });
 
 
 app.get('/', function (req, res) {
-    con.query("", function (
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
         err, result) {
         res.render('pages/index', {
             siteTitle: siteTitle,
