@@ -34,7 +34,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "electrolux"
+    database: "db_site"
 });
 
 
