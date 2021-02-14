@@ -128,14 +128,15 @@ app.post('/creation', function (req,res){
     /**
      * get the record base on ID
      */
-    var query = "INSERT INTO utilisateur(email,tel,nom,prenom,addresse, ville, code_postale, mot_de_passe) VALUES(";
+    var postable = req.body.Postale.split(" ").join("");
+    var query = "INSERT INTO utilisateur(email, tel, nom, prenom, addresse, ville, code_postale, mot_de_passe) VALUES(";
         query += " '"+req.body.email+"',"; 
         query += " '"+req.body.tel+"',"; 
         query += " '"+req.body.Nom+"',"; 
         query += " '"+req.body.Prenom+"',";
         query += " '"+req.body.adresse+"',"; 
         query += " '"+req.body.ville+"',";
-        query += " '"+req.body.Postale+"',";
+        query += " '"+postable+"',";
         query += " '"+req.body.password+"')";
        
     
