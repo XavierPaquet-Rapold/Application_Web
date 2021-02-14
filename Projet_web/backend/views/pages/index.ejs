@@ -1,83 +1,40 @@
 <%- include ('../partials/header') %>
 
-<style>
-    .ecart{
-        margin: 5px;
-        margin-top: 50px;
-    }
-    
-    a{
-        color: black;
-    }
+    <style>
+        .ecart {
+            margin: 5px;
+            margin-top: 50px;
+        }
 
-    a:hover{
-        color: #000;
-        text-decoration: none;
-    }
-</style>
+        a {
+            color: black;
+        }
 
-<div class="container">   
-    <div class="row custom-line">
+        a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
 
-        <a class="ecart" href="/categorie">
-            <div class="col align-self-start img-thumbnail">
-                <img width="350" height="200" src="/images/consoles/consoles.jpg"/>
-                <div class="col text-center">
-                    <textbox>Consoles</textbox>
-                </div>
-            </div>
-        </a>
 
-        <a class="ecart" href="/categorie">
-            <div class="col align-self-center img-thumbnail">
-                <img width="300" height="200" src="/images/ecouteurs/ecouteurs.jpg"/>
-                <div class="col text-center">
-                    <textbox>Ecouteurs</textbox>
-                </div>
-            </div>
-        </a>
+    <div class="container">
+        <div class="row custom-line">
+            <% items.forEach(function(row){ %>
 
-        <a class="ecart" href="/categorie">
-            <div class="col align-self-end img-thumbnail">
-                <img width="350" height="200" src="/images/frigos/frigos.jpg"/>
-                <div class="col text-center">
-                    <textbox>Refrigerateur</textbox>
-                </div>
-            </div>
-        </a>
+                <a class="ecart" href="/categorie">
+                    <div class="col align-self-end img-thumbnail">
+                        <img width="300" height="200" src="<%= row.lien_image %>" />
+                        <div class="col text-center">
+                            <textbox>
+                                <%= row.nom %>
+                            </textbox>
+                        </div>
+                    </div>
+                </a>
+
+            <% }) %>
+        </div>
     </div>
 
-    <div class="row custom-line">
 
-        <a class="ecart" href="/categorie">
-            <div class="col align-self-start img-thumbnail">
-                <img width="350" height="200" src="/images/laptops/laptops.jpg"/>
-                <div class="col text-center">
-                    <textbox>Laptops</textbox>
-                </div>
-            </div>
-        </a>
-
-        <a class="ecart" href="/categorie">
-            <div class="col align-self-center img-thumbnail">
-                <img width="300" height="200" src="/images/souris/souris.jpg"/>
-                <div class="col text-center">
-                    <textbox>Souris</textbox>
-                </div>
-            </div>
-        </a>
-
-        <a class="ecart" href="/categorie">
-            <div class="col align-self-end img-thumbnail">
-                <img width="350" height="200" src="/images/telephones/telephones.jpg"/>
-                <div class="col text-center">
-                    <textbox>Telephones</textbox>
-                </div>
-            </div>
-        </a>    
-
-    </div>
-</div>
-    
-
-<%- include ('../partials/footer') %>
+    <%- include ('../partials/footer') %>

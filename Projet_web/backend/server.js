@@ -39,7 +39,7 @@ var con = mysql.createConnection({
 
 
 app.get('/', function (req, res) {
-    con.query("", function (
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
         err, result) {
         res.render('pages/index', {
             siteTitle: siteTitle,
