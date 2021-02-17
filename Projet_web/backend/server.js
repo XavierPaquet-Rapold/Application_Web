@@ -86,12 +86,14 @@ app.get('/categorie/:id', function (req, res) {
 pour generer la page de produit
 */
 app.get('/produit/:id', function (req, res) {
-    con.query("SELECT a.image, a.marque, a.nom, a.prix, a.description, b.nombre, c.nom, c.adresse, c.ville, c.code_postale, c.tel FROM produit a, inventaire b, magasin c WHERE a.id_produit = b.produit_id_produit AND a.nom = '" + req.params.id + "' AND b.magasin_id_magasin = c.id_magasin;",
+    con.query("SELECT image, marque, nom, prix, description FROM produit WHERE nom = '" + req.params.id + "'; SELECT b.nombre, c.nom, c.adresse, c.ville, c.code_postale, c.tel FROM produit a, inventaire b, magasin c WHERE a.id_produit = b.produit_id_produit AND a.nom = '" + req.params.id + "' AND b.magasin_id_magasin = c.id_magasin; SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;",[1,2,3], 
         function (err, result) {
             res.render('pages/produit.ejs', {
                 siteTitle: siteTitle,
                 pageTitle: "Produit",
-                items: result
+                item: result[0],
+                outils: result[1],
+                items: result[2]
             });
         });
 });

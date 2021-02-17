@@ -9,7 +9,7 @@
                 margin-left: 55px;
                 margin-right: 180px;
             }
-    
+
             .textcss {
                 margin-top: 20px;
             }
@@ -17,7 +17,7 @@
             a {
                 color: black;
             }
-    
+
             a:hover {
                 color: #000;
                 text-decoration: none;
@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row custom-line">
 
-                <% items.forEach(function(row){ %>
+                <% item.forEach(function(row){ %>
 
                     <a class="ecart">
 
@@ -39,14 +39,54 @@
 
                     <div class="col textcss">
                         <textblock class="textcss">
-                            <h1><u><%= row.nom %></u></h1><br>
-                            <h3> Compagnie: <%= row.marque %></h3>
-                            <br><h3> Prix: <%= row.prix %>$</h3>
-                            <br><p>Description: <%= row.description %></p>
+                            <h1><u>
+                                    <%= row.nom %>
+                                </u></h1><br>
+                            <h3> Compagnie: <%= row.marque %>
+                            </h3>
+                            <br>
+                            <h3> Prix: <%= row.prix %>$</h3>
+                            <br>
+                            <p>Description: <%= row.description %>
+                            </p>
                         </textblock>
-                        
+
                     </div>
 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de magasin</th>
+                                <th>Stock</th>
+                                <th>Adresse</th>
+                                <th>Ville</th>
+                                <th>Code Postal</th>
+                                <th>Telephone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% outils.forEach(function(row){ %>
+
+                                <tr>
+
+                                    <td><%= row.nom %></td>
+                                
+                                    <td><%= row.nombre %></td>
+                                
+                                    <td><%= row.adresse %></td>
+                                
+                                    <td><%= row.ville %></td>
+                                
+                                    <td><%= row.code_postale %></td>
+                                
+                                    <td><%= row.tel %></td>
+
+                                </tr>
+                            
+                            <% }) %>
+                        </tbody>
+                    </table>
                 <% }) %>
 
             </div>
