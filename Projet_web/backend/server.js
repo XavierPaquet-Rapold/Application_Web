@@ -5,7 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var dateFormat = require('dateformat');
 var now = new Date();
-const siteTitle = "Simple application";
+const siteTitle = "To Spite The Amish";
 const baseURL = "http://localhost:4000";
 
 /**
@@ -82,8 +82,8 @@ app.get('/categorie/:id', function (req, res) {
 /*
 pour generer la page de produit
 */
-app.get('/produit', function (req, res) {
-    con.query("",
+app.get('/produit/:id', function (req, res) {
+    con.query("SELECT a.image, a.marque, a.nom, a.prix, a.description, b.nombre, c.nom, c.adresse, c.ville, c.code_postale, c.tel FROM produit a, inventaire b, magasin c WHERE a.id_produit = b.produit_id_produit AND a.nom = '" + req.params.id + "' AND b.magasin_id_magasin = c.id_magasin;",
         function (err, result) {
             res.render('pages/produit.ejs', {
                 siteTitle: siteTitle,

@@ -1,8 +1,56 @@
 <%- include ('../partials/header') %>
 
-    <form action="/produit">
+    <form action="/produit/:id">
 
-        <h1>Le produit</h1>
+        <style>
+            .ecart {
+                margin: 5px;
+                margin-top: 50px;
+                margin-left: 55px;
+                margin-right: 180px;
+            }
+    
+            .textcss {
+                margin-top: 20px;
+            }
+
+            a {
+                color: black;
+            }
+    
+            a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+        </style>
+
+        <div class="container">
+            <div class="row custom-line">
+
+                <% items.forEach(function(row){ %>
+
+                    <a class="ecart">
+
+                        <div class="col align-self-start img-thumbnail">
+                            <img width="450" height="300" src="<%= row.image %>" />
+                        </div>
+
+                    </a>
+
+                    <div class="col textcss">
+                        <textblock class="textcss">
+                            <h1><u><%= row.nom %></u></h1><br>
+                            <h3> Compagnie: <%= row.marque %></h3>
+                            <br><h3> Prix: <%= row.prix %>$</h3>
+                            <br><p>Description: <%= row.description %></p>
+                        </textblock>
+                        
+                    </div>
+
+                <% }) %>
+
+            </div>
+        </div>
 
     </form>
 
