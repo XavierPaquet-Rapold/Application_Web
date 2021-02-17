@@ -1,16 +1,40 @@
 <%- include ('../partials/header') %>
 
-    <form action="/connexion" >
+    <form action="/connexion" method="POST" class="col s12" >
 
         <h1>Connexion</h1>
-        <label><b>Courriel :</b></label>
-        <input type = "email" placeholder="Entrer votre courriel " name="email" required><br>
 
-        <label><b>Mot de passe : </b></label>
-       <input type = "password" placeholder="Entrer le mot de passe" name = "password" required>
+        <div class="form-group row">
+            <label class="col-2 col-form-label"><b>Courriel :</b></label>
+            <div class="col-10">   
+                <input type = "email" placeholder="Entrer votre courriel " class="form-control" name="email" required><br>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label"><b>Mot de passe : </b></label>
+            <div class="col-10">
+                <input type = "password" placeholder="Entrer le mot de passe" class="form-control" name = "password" required><br>
+            </div>
+        </div>
 
 
-        <br><input type="submit" id='submit' value="LOGIN">
-        <br><a href="/creation">Creation de compte</a>
+        <div class="form-group row">
+            <label class="col-2 col-form-label" style="color:#ffffff">LOGIN</label>
+            <div class="col-10">
+                <input type="submit" id='submit' class="btn btn-primary btn-lg" value="LOGIN">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label" style="color:#ffffff">Creation du compte</label>
+            <div class="col-10">
+                <input type=button class="btn btn-primary btn-lg" onclick=window.location.href="/creation" value="Creation du compte"/>
+            </div>
+        </div>
+         
+
     </form>
-<%- include ('../partials/footer') %>
+   
+    
+    <%- include ('../partials/footer') %>
