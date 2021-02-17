@@ -37,7 +37,9 @@ var con = mysql.createConnection({
     database: "db_site"
 });
 
-
+/*
+pour générer la page principale
+*/
 app.get('/', function (req, res) {
     con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
         err, result) {
@@ -66,8 +68,8 @@ app.get('/connexion', function (req, res) {
 /*
 pour generer la page de categorie
 */
-app.get('/categorie', function (req, res) {
-    con.query("",
+app.get('/categorie/:id', function (req, res) {
+    con.query("SELECT * FROM produit WHERE produit_catégorie_id_catégorie = (SELECT id_catégorie FROM produit_catégorie WHERE nom = '" + req.params.id + "');",
         function (err, result) {
             res.render('pages/categorie.ejs', {
                 siteTitle: siteTitle,
