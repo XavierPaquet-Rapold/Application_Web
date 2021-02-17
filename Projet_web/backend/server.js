@@ -5,7 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var dateFormat = require('dateformat');
 var now = new Date();
-const siteTitle = "Simple application";
+const siteTitle = "To Spite The Amish";
 const baseURL = "http://localhost:4000";
 
 /**
@@ -53,7 +53,7 @@ app.get('/', function (req, res) {
 pour generer la page de connexion
 */
 app.get('/connexion', function (req, res) {
-    con.query("", function (
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
         err, result) {
         res.render('pages/connexion.ejs', {
             siteTitle: siteTitle,
@@ -67,7 +67,7 @@ app.get('/connexion', function (req, res) {
 pour generer la page de categorie
 */
 app.get('/categorie', function (req, res) {
-    con.query("",
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
         function (err, result) {
             res.render('pages/categorie.ejs', {
                 siteTitle: siteTitle,
@@ -81,7 +81,7 @@ app.get('/categorie', function (req, res) {
 pour generer la page de produit
 */
 app.get('/produit', function (req, res) {
-    con.query("",
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
         function (err, result) {
             res.render('pages/produit.ejs', {
                 siteTitle: siteTitle,
@@ -95,7 +95,7 @@ app.get('/produit', function (req, res) {
 pour generer la page de panier
 */
 app.get('/panier', function (req, res) {
-    con.query("",
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
         function (err, result) {
             res.render('pages/panier.ejs', {
                 siteTitle: siteTitle,
@@ -109,7 +109,7 @@ app.get('/panier', function (req, res) {
 pour generer la page de creation de compte
 */
 app.get('/creation', function (req, res) {
-    con.query("",
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
         function (err, result) {
             res.render('pages/creation.ejs', {
                 siteTitle: siteTitle,

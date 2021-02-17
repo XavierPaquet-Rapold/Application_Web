@@ -1,9 +1,20 @@
-
 <nav class ="navbar navbar-dark bg-info">
     <a href="/" class="btn btn-lg"><img src="/images/logo.png"></a>	
-    <a href="/categorie" class="btn btn-lg">Categorie</a>
-    <a href="https://matias.ma/nsfw/" class="btn btn-lg"><b>To Spite The Amish</b></a>
+    <div class="dropdown">
+        <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categorie
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+            <% items.forEach(function(row){ %>
+                <a class="dropdown-item" href="/categorie/<%= row.nom %>">
+                    <div class="col text-center">
+                            <%= row.nom %>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+      </div>
+    <a href="/" class="btn btn-lg"><b>To Spite The Amish</b></a>
     <a href="/connexion" class="btn btn-lg">Connexion</a>
     <a href="/panier" class="btn btn-lg"><img src="/images/shopping-cart.png"></a>
-    
 </nav>	
