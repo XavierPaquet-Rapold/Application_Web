@@ -7,12 +7,11 @@ var dateFormat = require('dateformat');
 var now = new Date();
 const siteTitle = "To Spite The Amish";
 const baseURL = "http://localhost:4000";
-
 /**
 * connect to server
 */
 var server = app.listen(4000, function () {
-    console.log("serveur fonctionne sur 4000... ENFIN!!! ");
+    console.log("serveur fonctionne sur 4000");
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +33,8 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "db_site"
+    database: "db_site",
+    multipleStatements: true
 });
 
 /*
@@ -55,7 +55,7 @@ app.get('/', function (req, res) {
 pour generer la page de connexion
 */
 app.get('/connexion', function (req, res) {
-    con.query("", function (
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
         err, result) {
         res.render('pages/connexion.ejs', {
             siteTitle: siteTitle,
@@ -69,12 +69,15 @@ app.get('/connexion', function (req, res) {
 pour generer la page de categorie
 */
 app.get('/categorie/:id', function (req, res) {
-    con.query("SELECT * FROM produit WHERE produit_catégorie_id_catégorie = (SELECT id_catégorie FROM produit_catégorie WHERE nom = '" + req.params.id + "');",
+    con.query("SELECT * FROM produit WHERE produit_catégorie_id_catégorie = (SELECT id_catégorie FROM produit_catégorie WHERE nom = '" + req.params.id + "'); "+
+    "SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", [1,2],
         function (err, result) {
+            console.log(result);
             res.render('pages/categorie.ejs', {
                 siteTitle: siteTitle,
                 pageTitle: "Categorie",
-                items: result
+                outils: result[0],
+                items: result[1]
             });
         });
 });
@@ -97,7 +100,7 @@ app.get('/produit/:id', function (req, res) {
 pour generer la page de panier
 */
 app.get('/panier', function (req, res) {
-    con.query("",
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
         function (err, result) {
             res.render('pages/panier.ejs', {
                 siteTitle: siteTitle,
@@ -111,7 +114,7 @@ app.get('/panier', function (req, res) {
 pour generer la page de creation de compte
 */
 app.get('/creation', function (req, res) {
-    con.query("",
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
         function (err, result) {
             res.render('pages/creation.ejs', {
                 siteTitle: siteTitle,
