@@ -16,12 +16,11 @@
         }
     </style>
 
-
     <div class="container">
         <div class="row custom-line">
             <% items.forEach(function(row){ %>
-
-                <a class="ecart" href="/categorie">
+                
+                <a class="ecart" href="/categorie/<%= row.nom %>">
                     <div class="col align-self-end img-thumbnail">
                         <img width="330" height="200" src="<%= row.lien_image %>" />
                         <div class="col text-center">
@@ -31,7 +30,7 @@
                         </div>
                     </div>
                 </a>
-
+                
             <% }) %>
         </div>
     </div>
