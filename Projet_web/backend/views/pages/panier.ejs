@@ -1,9 +1,33 @@
 <%- include ('../partials/header') %>
 
-    <form action="/panier">
+<% if(outils.length > 0) { %></if>
+    <div class="table-responsive">
+        <table class="table textcss table-dark table-condensed">
+            <thead>
+                <tr class="bg-info">
+                    <th>Image</th>
+                    <th>Produit</th>
+                    <th>Marque</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% outils.forEach(function(row){ %>
 
-        <h1>Le panier</h1>
+                    <tr>
+                        <td><%= row.image %></td>
+                        <td><%= row.nom %></td>
+                        <td><%= row.marque %></td>
+                        <td><%= row.nombre %></td>
+                    </tr>
+                
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+<% }else {%>
+    <p><strong> Veuillez vous connecter pour acceder au panier </strong></p>
+<% } %>
 
-    </form>
 
-    <%- include ('../partials/footer') %>
+<%- include ('../partials/footer') %>
