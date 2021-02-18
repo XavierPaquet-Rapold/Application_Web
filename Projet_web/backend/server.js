@@ -86,7 +86,7 @@ app.get('/categorie/:id', function (req, res) {
 pour generer la page de produit
 */
 app.get('/produit/:id', function (req, res) {
-    con.query("SELECT image, marque, nom, prix, description FROM produit WHERE nom = '" + req.params.id + "'; SELECT b.nombre, c.nom, c.adresse, c.ville, c.code_postale, c.tel FROM produit a, inventaire b, magasin c WHERE a.id_produit = b.produit_id_produit AND a.nom = '" + req.params.id + "' AND b.magasin_id_magasin = c.id_magasin; SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;",[1,2,3], 
+    con.query("SELECT id_produit, image, marque, nom, prix, description FROM produit WHERE nom = '" + req.params.id + "'; SELECT b.nombre, c.nom, c.adresse, c.ville, c.code_postale, c.tel FROM produit a, inventaire b, magasin c WHERE a.id_produit = b.produit_id_produit AND a.nom = '" + req.params.id + "' AND b.magasin_id_magasin = c.id_magasin; SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;",[1,2,3], 
         function (err, result) {
             res.render('pages/produit.ejs', {
                 siteTitle: siteTitle,
@@ -96,6 +96,20 @@ app.get('/produit/:id', function (req, res) {
                 items: result[2]
             });
         });
+});
+/*
+pour ajouter un produit au panier
+*/
+
+app.post('/produit/:id', function (req, res) {
+    /* get the record base on ID
+    */
+    var query = "INSERT INTO panier (produit_id_produit) VALUES (";
+    query += " '" + req.params.id +"');";
+    con.query(query, function (err, result) {
+        if (err) throw err;
+        res.redirect(baseURL);
+    });
 });
 
 /*
