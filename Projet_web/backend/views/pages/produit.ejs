@@ -1,97 +1,113 @@
-<%- include ('../partials/header') %>
+<%- include ('../partials/header') %> 
+   
+        <form action="/produit/:id" method="POST">
+    
+            <style>
+                .ecart {
+                    margin: 5px;
+                    margin-top: 50px;
+                    margin-left: 55px;
+                    margin-right: 180px;
+                }
 
-    <form action="/produit/:id">
+                .textcss {
+                    margin-top: 20px;
+                }
 
-        <style>
-            .ecart {
-                margin: 5px;
-                margin-top: 50px;
-                margin-left: 55px;
-                margin-right: 180px;
-            }
+                th {
+                    color: rgb(8, 51, 103);
+                }
 
-            .textcss {
-                margin-top: 20px;
-            }
+                td {
+                    color: rgb(188, 222, 243);
+                }
 
-            a {
-                color: black;
-            }
+                a {
+                    color: black;
+                }
 
-            a:hover {
-                color: #000;
-                text-decoration: none;
-            }
-        </style>
+                a:hover {
+                    color: #000;
+                    text-decoration: none;
+                }
+            </style>
 
-        <div class="container">
-            <div class="row custom-line">
+        
+            <div class="container">
+                <div class="row custom-line">
 
-                <% item.forEach(function(row){ %>
+                    <% item.forEach(function(row){ %>
 
-                    <a class="ecart">
+                        <a class="ecart">
 
-                        <div class="col align-self-start img-thumbnail">
-                            <img width="450" height="300" src="<%= row.image %>" />
+                            <div class="col align-self-start img-thumbnail">
+                                <img width="450" height="300" src="<%= row.image %>" />
+                            </div>
+
+                        </a>
+
+                        <div class="col textcss">
+                            <textblock class="textcss">
+                                <h1><u>
+                                        <%= row.nom %>
+                                    </u></h1><br>
+                                <h3> Compagnie: <%= row.marque %>
+                                </h3>
+                                <br>
+                                <h3> Prix: <%= row.prix %>$</h3>
+                                <br>
+                                <p>Description: <%= row.description %>
+                                </p>
+                            </textblock>
+
+                            <div class="form-group row ">
+                                <div class="col-10">
+                                    <input type="submit" class="btn btn-warning btn-lg" value="Ajoutez au panier"/>
+                                </div>
+                            </div>
+
                         </div>
 
-                    </a>
+                        <div class="table-responsive">
 
-                    <div class="col textcss">
-                        <textblock class="textcss">
-                            <h1><u>
-                                    <%= row.nom %>
-                                </u></h1><br>
-                            <h3> Compagnie: <%= row.marque %>
-                            </h3>
-                            <br>
-                            <h3> Prix: <%= row.prix %>$</h3>
-                            <br>
-                            <p>Description: <%= row.description %>
-                            </p>
-                        </textblock>
+                            <table class="table textcss table-dark table-condensed">
+                                <thead>
+                                    <tr class="bg-info">
+                                        <th>Nom de magasin</th>
+                                        <th>Stock</th>
+                                        <th>Adresse</th>
+                                        <th>Ville</th>
+                                        <th>Code Postal</th>
+                                        <th>Telephone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                    </div>
+                                    <% outils.forEach(function(row){ %>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nom de magasin</th>
-                                <th>Stock</th>
-                                <th>Adresse</th>
-                                <th>Ville</th>
-                                <th>Code Postal</th>
-                                <th>Telephone</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                                        <tr>
 
-                            <% outils.forEach(function(row){ %>
+                                            <td><%= row.nom %></td>
+                                        
+                                            <td><%= row.nombre %></td>
+                                        
+                                            <td><%= row.adresse %></td>
+                                        
+                                            <td><%= row.ville %></td>
+                                        
+                                            <td><%= row.code_postale %></td>
+                                        
+                                            <td><%= row.tel %></td>
 
-                                <tr>
+                                        </tr>
+                                    
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% }) %>
 
-                                    <td><%= row.nom %></td>
-                                
-                                    <td><%= row.nombre %></td>
-                                
-                                    <td><%= row.adresse %></td>
-                                
-                                    <td><%= row.ville %></td>
-                                
-                                    <td><%= row.code_postale %></td>
-                                
-                                    <td><%= row.tel %></td>
-
-                                </tr>
-                            
-                            <% }) %>
-                        </tbody>
-                    </table>
-                <% }) %>
-
+                </div>
             </div>
-        </div>
-
-    </form>
-
-    <%- include ('../partials/footer') %>
+        </form>
+<%- include ('../partials/footer') %>

@@ -107,6 +107,20 @@ app.get('/produit/:id', function (req, res) {
             });
         });
 });
+/*
+pour ajouter un produit au panier
+*/
+
+app.post('/produit/:id', function (req, res) {
+    /* get the record base on ID
+    */
+    var query = "INSERT INTO panier (produit_id_produit) VALUES (";
+    query += " '" + req.params.id +"');";
+    con.query(query, function (err, result) {
+        if (err) throw err;
+        res.redirect(baseURL);
+    });
+});
 
 /*
 pour generer la page de panier
