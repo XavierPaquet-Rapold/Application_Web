@@ -1,6 +1,6 @@
 <%- include ('../partials/header') %>
 
-<% if(outils.length > 0) { %></if>
+<% if(connexion) { %></if>
     <div class="table-responsive">
         <table class="table textcss table-dark table-condensed">
             <thead>
@@ -28,8 +28,10 @@
         
 
     </div>
-<% }else {%>
+<% }else if (!connection){%>
     <p><strong> Veuillez vous connecter pour acceder au panier </strong></p>
+<% } else { %>
+    
 <% } %>
 
 

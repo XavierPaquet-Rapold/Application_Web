@@ -1,6 +1,5 @@
 <%- include ('../partials/header') %> 
 <% if(item.length > 0) { %></if>
-        <form action="/produit/:id" method="POST">
     
             <style>
                 .ecart {
@@ -60,11 +59,43 @@
                                 </p>
                             </textblock>
 
-                            <div class="form-group row ">
-                                <div class="col-10">
-                                    <input type="submit" class="btn btn-warning btn-lg" value="Ajoutez au panier"/>
+                            <form action="/produit/<%= row.id_produit %>" method="POST">
+                                <div class="form-group row ">
+                                    <div class="col-10">
+                                        <div class="a-column a-span12 a-text-left">
+                                            <span class="a-dropdown-container"><label for="quantity" class="a-native-dropdown">Quantité:</label>
+                                                <select name="quantity" autocomplete="off" id="quantity" tabIndex="-1" class="a-native-dropdown">
+                                            
+                                                    <% for (var i =1; i <=15;  i++ ) { %>
+                                                        <option value="<%= i %>"><%= i %>
+                                                        </option>
+                                                    <% } %>
+                                                    
+                                                </select>
+                                                <span tabIndex="-1" class="a-button a-button-dropdown a-button-small">
+                                                    <span class="a-button-inner">
+                                                        <span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabIndex="0" aria-hidden="true">
+                                                            <span class="a-dropdown-label">
+                                                                
+                                                            </span>
+                                                            <span class="a-dropdown-prompt">
+
+                                                            </span>
+                                                        </span>
+                                                        <i class="a-icon a-icon-dropdown">
+
+                                                        </i>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+
+                                        <input type="hidden" name="id_produit" value="<%= row.id_produit %>"/>
+                                        <input type="submit" class="btn btn-warning btn-lg" id="<%= row.id_produit %>" value="Ajoutez au panier"/>
+
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
 
                         </div>
 
@@ -109,7 +140,6 @@
 
                 </div>
             </div>
-        </form>
         <% }else {%>
             <p><strong> Une erreur avec la base de données s'est produit. S'il vous plaît, contacter l'administrateur</strong></p>
         <% } %>
