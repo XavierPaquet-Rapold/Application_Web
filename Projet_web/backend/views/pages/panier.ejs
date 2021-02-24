@@ -1,21 +1,23 @@
 <%- include ('../partials/header') %>
 
-<% if(outils.length > 0) { %></if>
-    <div class="table-responsive">
-        <table class="table textcss table-dark table-condensed">
+<% if(outils.length > 0 && connexion) { %></if>
+    <div class="table-responsive row custom-line">
+        <table style="width: 90%; margin-top: 2%; margin-left: 6%; text-align: center;" class="table table-dark table-condensed table-striped">
             <thead>
                 <tr class="bg-info">
-                    <th>Image</th>
-                    <th>Produit</th>
-                    <th>Marque</th>
-                    <th>Nombre</th>
+                    <th style="width: 5%;">Image</th>
+                    <th style="width: 40%;">Produit</th>
+                    <th style="width: 40%;">Marque</th>
+                    <th style="width: 15%;">Nombre</th>
                 </tr>
             </thead>
             <tbody>
                 <% outils.forEach(function(row){ %>
 
                     <tr>
-                        <td><%= row.image %></td>
+                        <td>
+                            <img  max width="50" max height="50" src="<%= row.image %>"/>
+                        </td>
                         <td><%= row.nom %></td>
                         <td><%= row.marque %></td>
                         <td><%= row.nombre %></td>
@@ -25,8 +27,10 @@
             </tbody>
         </table>
     </div>
-<% }else {%>
+<% }else if(!connexion) {%>
     <p><strong> Veuillez vous connecter pour acceder au panier </strong></p>
+<% } else { %>
+    <p><strong> Vous n'avez pas de produits dans votre panier </strong></p>
 <% } %>
 
 

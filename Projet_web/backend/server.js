@@ -134,7 +134,8 @@ app.get('/panier', function (req, res) {
                 siteTitle: siteTitle,
                 pageTitle: "Panier",
                 items: result[0],
-                outils: result[1]
+                outils: result[1],
+                connexion: req.session.loggedin
             });
         });
 });
