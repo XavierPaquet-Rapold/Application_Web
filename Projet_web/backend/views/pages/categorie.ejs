@@ -1,5 +1,5 @@
 <%- include ('../partials/header') %>
-
+<% if(outils.length > 0) { %></if>
     <form action="/categorie/:id">
 
         <style>
@@ -42,5 +42,7 @@
         </div>
 
     </form>
-
+    <% }else {%>
+        <p><strong> Une erreur s'est produit lors de la rêquete. S'il vous plaît, contacter l'administrateur</strong></p>
+    <% } %>
     <%- include ('../partials/footer') %>

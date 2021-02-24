@@ -1,5 +1,5 @@
 <%- include ('../partials/header') %> 
-   
+<% if(item.length > 0) { %></if>
         <form action="/produit/:id" method="POST">
     
             <style>
@@ -110,4 +110,8 @@
                 </div>
             </div>
         </form>
+        <% }else {%>
+            <p><strong> Une erreur avec la base de données s'est produit. S'il vous plaît, contacter l'administrateur</strong></p>
+        <% } %>
+    
 <%- include ('../partials/footer') %>

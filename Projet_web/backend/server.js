@@ -176,6 +176,29 @@ app.post('/connexion', function(req, res) {
 });
 
 /**
+ * get methode : poure fermer la session de l'utilisateur
+ */
+app.get('/logout',  function (req, res, next)  {
+    if (req.session) {
+      // delete session object
+      req.session.destroy(function (err) {
+         
+        if (err) {
+           next(err);
+        } else {
+           
+           res.redirect('/');
+        }
+         
+      });
+    }
+  });
+
+
+
+
+
+/**
  * post methode to date : pour ajouter un utilisateur a la BD
  */
 app.post('/creation', function (req,res){
