@@ -185,10 +185,7 @@ app.get('/logout',  function (req, res, next)  {
          
         if (err) {
            next(err);
-        } else {
-           
-           res.redirect('/');
-        }
+        } 
          
       });
     }
