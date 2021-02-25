@@ -118,12 +118,15 @@ app.post('/produit/:id', function (req, res) {
 
     var quantite = req.body.quantity;
     var id_produit = req.body.id_produit;
-    
-    con.query("INSERT INTO panier (produit_id_produit, utilisateur_id_utilisateur, nombre) VALUES (?, ?, ?);", [id_produit, req.session.id_utilisateur, quantite], 
-    function (err, result) {
-        if (err) throw err;
-        res.redirect(baseURL);
-    });
+    if(req.session.loggedin){
+        con.query("INSERT INTO panier (produit_id_produit, utilisateur_id_utilisateur, nombre) VALUES (?, ?, ?);", [id_produit, req.session.id_utilisateur, quantite], 
+        function (err, result) {
+            if (err) throw err;
+            res.status(204).send();
+        });
+    }else{
+        res.status(204).send();
+    }
 });
 
 /*
@@ -167,18 +170,17 @@ app.post('/connexion', function(req, res) {
     var password = req.body.password;
     if (username && password) {
         con.query('SELECT * FROM utilisateur WHERE email = ? AND mot_de_passe = ?', [username, password], function(error, results, fields) {
-            console.log(results);
             if (results.length > 0) {
                 req.session.loggedin = true;
                 req.session.username = username;
                 req.session.id_utilisateur = results[0].id_utilisateur;
                 res.redirect('/panier');
             } else {
-                res.redirect('/connexion');
+                res.status(204).send();
             }
         });
     } else {
-        res.redirect('/connexion');
+        res.status(204).send();
     }
 });
 
@@ -191,8 +193,11 @@ app.get('/logout',  function (req, res, next)  {
       req.session.destroy(function (err) {
         if (err) {
            next(err);
-        } 
+        }
+        res.status(204).send();
       });
+    } else {
+        res.status(204).send();
     }
   });
 
