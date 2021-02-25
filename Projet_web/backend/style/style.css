@@ -15,6 +15,7 @@
     display: table-cell; 
     vertical-align: middle;
     text-align: center;
+
 }
 
 .rectangleIndex{
@@ -111,7 +112,7 @@ h2{
     border-radius: 2px;
     color: black;
     }
-    input[type=submit]{
+    input[type=submit].button3{
     font-size: 16px;
     background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
     border: 1px solid #000000;
@@ -123,10 +124,10 @@ h2{
     padding: 10px 0;
     outline:none;
     }
-    input[type=submit]:hover{
+    input[type=submit].button3:hover{
     background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
     }
-    input[type=button]{
+    input[type=button].button1{
         margin-top: 15px;
         font-size: 16px;
         background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
@@ -139,7 +140,7 @@ h2{
         padding: 10px 0;
         outline:none;
         }
-        input[type=button]:hover{
+        input[type=button].button1:hover{
         background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
         }
         input[type=submit].button2{
