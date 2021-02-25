@@ -10,6 +10,7 @@ const { Console } = require('console');
 var now = new Date();
 const siteTitle = "To Spite The Amish";
 const baseURL = "http://localhost:4000";
+
 /**
 * connect to server
 */
@@ -35,6 +36,7 @@ app.use('/js', express.static(__dirname + '/node_modules/tether/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css', express.static(__dirname + '/style'));
+
 
 /**
 * connexion à la BD
@@ -194,10 +196,13 @@ app.get('/logout',  function (req, res, next)  {
         if (err) {
            next(err);
         }
+              
         res.status(204).send();
-      });
+        });
     } else {
+        
         res.status(204).send();
+        
     }
   });
 

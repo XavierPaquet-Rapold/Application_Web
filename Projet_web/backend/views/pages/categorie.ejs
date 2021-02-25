@@ -8,7 +8,7 @@
                     
                     <a class="ecart" href="/produit/<%= row.nom %>">
                         <div class="col img-thumbnail text-center rectangle">
-                            <img style="max-height:300px; max-width: 475px;" src="<%= row.image %>" />
+                            <img style="max-height:300px; max-width: 400px;" src="<%= row.image %>" />
                             <div class="col text-center">
                                 <textbox>
                                     <%= row.nom %><br>
@@ -25,6 +25,12 @@
 
     </form>
     <% }else {%>
-        <p><strong> Une erreur s'est produit lors de la rêquete. S'il vous plaît, contacter l'administrateur</strong></p>
+        <div class="container">
+            <div class="row align-middle">
+                <div class="col-6 mx-auto milieu d-flex align-self-center">
+                    <h1><strong>Une erreur s'est produit lors de la rêquete. S'il vous plaît, contacter l'administrateur</strong></h1>
+                </div>
+            </div>
+        </div>
     <% } %>
     <%- include ('../partials/footer') %>
