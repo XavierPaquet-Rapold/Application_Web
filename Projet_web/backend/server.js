@@ -34,6 +34,7 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/tether/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use('/css', express.static(__dirname + '/style'));
 
 /**
 * connexion à la BD
@@ -78,8 +79,8 @@ app.get('/connexion', function (req, res) {
 pour generer la page de categorie
 */
 app.get('/categorie/:id', function (req, res) {
-    con.query("SELECT * FROM produit WHERE produit_catégorie_id_catégorie = (SELECT id_catégorie FROM produit_catégorie WHERE nom = '" + req.params.id + "'); "+
-    "SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", [1,2],
+    con.query("SELECT * FROM produit WHERE produit_catégorie_id_catégorie = (SELECT id_catégorie FROM produit_catégorie WHERE nom = ?); "+
+    "SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", [req.params.id],
         function (err, result) {
             res.render('pages/categorie.ejs', {
                 siteTitle: siteTitle,
@@ -94,13 +95,10 @@ app.get('/categorie/:id', function (req, res) {
 pour generer la page de produit
 */
 app.get('/produit/:id', function (req, res) {
-    con.query("SELECT id_produit, image, marque, nom, prix, description FROM produit WHERE nom = '" + req.params.id + "';" +
-        " SELECT b.nombre, c.nom, c.adresse, c.ville, c.code_postale, c.tel FROM produit a, inventaire b, magasin c WHERE a.id_produit = b.produit_id_produit AND a.nom = '" 
-        + req.params.id + "' AND b.magasin_id_magasin = c.id_magasin;"+
-        " SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;", 
-        
+    con.query("SELECT id_produit, image, marque, nom, prix, description FROM produit WHERE nom = ?;" +
+    " SELECT b.nombre, c.nom, c.adresse, c.ville, c.code_postale, c.tel FROM produit a, inventaire b, magasin c WHERE a.id_produit = b.produit_id_produit AND a.nom = ? AND b.magasin_id_magasin = c.id_magasin;"+
+    " SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;", [req.params.id, req.params.id],
         function (err, result) {
-            
             res.render('pages/produit.ejs', {
                 siteTitle: siteTitle,
                 pageTitle: "Produit",
@@ -169,6 +167,7 @@ app.post('/connexion', function(req, res) {
     var password = req.body.password;
     if (username && password) {
         con.query('SELECT * FROM utilisateur WHERE email = ? AND mot_de_passe = ?', [username, password], function(error, results, fields) {
+            console.log(results);
             if (results.length > 0) {
                 req.session.loggedin = true;
                 req.session.username = username;
@@ -187,7 +186,7 @@ app.post('/connexion', function(req, res) {
  * get methode : poure fermer la session de l'utilisateur
  */
 app.get('/logout',  function (req, res, next)  {
-    if (req.session) {
+    if (req.session.loggedin) {
       // delete session object
       req.session.destroy(function (err) {
         if (err) {
@@ -196,10 +195,6 @@ app.get('/logout',  function (req, res, next)  {
       });
     }
   });
-
-
-
-
 
 /**
  * post methode to date : pour ajouter un utilisateur a la BD
