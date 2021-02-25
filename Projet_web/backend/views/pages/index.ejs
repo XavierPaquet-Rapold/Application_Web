@@ -1,27 +1,11 @@
 <%- include ('../partials/header') %>
-<% if(items.length > 0) { %></if>
-    <style>
-        .ecart {
-            margin: 5px;
-            margin-top: 50px;
-        }
-
-        a {
-            color: black;
-        }
-
-        a:hover {
-            color: #000;
-            text-decoration: none;
-        }
-    </style>
-
+<% if(items.length > 0) { %>
     <div class="container">
         <div class="row custom-line">
             <% items.forEach(function(row){ %>
-                <a class="ecart" href="/categorie/<%= row.nom %>">
-                    <div class="col align-self-end img-thumbnail">
-                        <img max width="338" max height="208" src="<%= row.lien_image %>" />
+                <a class="ecartIndex" href="/categorie/<%= row.nom %>">
+                    <div class="img-thumbnail rectangleIndex">
+                        <img style="max-width: 300px; max-height: 200px;" src="<%= row.lien_image %>" />
                         <div class="col text-center">
                             <textbox>
                                 <%= row.nom %>

@@ -1,21 +1,29 @@
 <nav class ="navbar navbar-dark bg-info">
-    <a href="/" class="btn btn-lg"><img src="/images/logo.png"></a>	
-    <div class="dropdown">
-        <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categorie
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-            <% items.forEach(function(row){ %>
-                <a class="dropdown-item" href="/categorie/<%= row.nom %>">
-                    <div class="col text-center">
-                            <%= row.nom %>
-                    </div>
-                </a>
-            <% }) %>
+    <div class="d-flex justify-content-start" style="size: 115%;">
+        <a href="/" class="btn btn-lg" style="max-height: 50px;"><img src="/images/logo.png"></a>	
+        <div class="dropdown" style="margin-top: 5px;">
+            <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorie
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <% items.forEach(function(row){ %>
+                    <a class="dropdown-item" href="/categorie/<%= row.nom %>">
+                        <div class="col text-center">
+                                <%= row.nom %>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
         </div>
-      </div>
-    <a href="https://matias.ma/nsfw/" class="btn btn-lg"><b>To Spite The Amish</b></a>
-    <a href="/connexion" class="btn btn-lg">Connexion</a>
-    <a href="/logout" class="btn btn-lg">Déconnexion</a>
-    <a href="/panier" class="btn btn-lg"><img src="/images/shopping-cart.png"></a>
+        <div></div>
+    </div>
+    <div style="margin-left: 7%;">
+        <a href="https://matias.ma/nsfw/" class="btn btn-lg"><b>To Spite The Amish</b></a>
+    </div>
+    
+    <div class="d-flex justify-content-end">
+        <a href="/connexion" class="btn btn-lg" style="margin-top: 5px; max-height: 50px;">Connexion</a>
+        <a href="/logout" class="btn btn-lg" style="margin-top: 5px;  max-height: 50px;">Déconnexion</a>
+        <a href="/panier" class="btn btn-lg" style="max-height: 50px;"><img src="/images/shopping-cart.png"></a>
+    </div>
 </nav>	

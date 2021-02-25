@@ -1,32 +1,14 @@
 <%- include ('../partials/header') %>
-<% if(outils.length > 0) { %></if>
+
+<% if(outils.length > 0) { %>
     <form action="/categorie/:id">
-
-        <style>
-            .ecart {
-                margin: 5px;
-                margin-top: 50px;
-                margin-left: 55px;
-            }
-    
-            a {
-                color: black;
-            }
-    
-            a:hover {
-                color: #000;
-                text-decoration: none;
-            }
-        </style>
-    
         <div class="container">
-            <div class="row custom-line">
-
+            <div class="row">
                 <% outils.forEach(function(row){ %>
                     
                     <a class="ecart" href="/produit/<%= row.nom %>">
-                        <div class="col align-self-start img-thumbnail">
-                            <img max width="475" max height="350" src="<%= row.image %>" />
+                        <div class="col img-thumbnail text-center rectangle">
+                            <img style="max-height:300px; max-width: 475px;" src="<%= row.image %>" />
                             <div class="col text-center">
                                 <textbox>
                                     <%= row.nom %><br>

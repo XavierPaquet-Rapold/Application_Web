@@ -1,0 +1,46 @@
+.ecart {
+    margin: 5px;
+    margin-top: 50px;
+    margin-left: 55px;
+}
+
+.ecartIndex{
+    margin: 5px;
+    margin-top: 50px;
+}
+
+.rectangle{
+    width: 450px;
+    height: 375px;
+    display: table-cell; 
+    vertical-align: middle;
+    text-align: center;
+}
+
+.rectangleIndex{
+    width: 350px;
+    height: 240px;
+    display: table-cell; 
+    vertical-align: middle;
+    text-align: center;
+}
+.textcss {
+    margin-top: 20px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+th {
+    color: rgb(8, 51, 103);
+}
+
+td {
+    color: rgb(188, 222, 243);
+}
