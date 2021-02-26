@@ -1,19 +1,22 @@
 <%- include ('../partials/header') %>
 
 <% if(outils.length > 0 && connexion) { %></if>
+    <% var total = 0; %>
     <div class="table-responsive row custom-line">
         <table style="width: 90%; margin-top: 2%; margin-left: 6%; text-align: center;" class="table table-dark table-condensed table-striped">
             <thead>
                 <tr class="bg-info">
                     <th style="width: 5%;">Image</th>
-                    <th style="width: 40%;">Produit</th>
-                    <th style="width: 40%;">Marque</th>
-                    <th style="width: 15%;">Nombre</th>
+                    <th style="width: 10%;">Produit</th>
+                    <th style="width: 10%;">Marque</th>
+                    <th style="width: 11%;">Nombre</th>
+                    <th style="width: 11%;">Prix par unité</th>
+                    <th style="width: 11%;">Prix total</th>
+                    <th colspan="2" style="width: 18%; text-align:center;">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <% outils.forEach(function(row){ %>
-
                     <tr>
                         <td>
                             <img style="max-height:50px; max-width: 50px;" src="<%= row.image %>"/>
@@ -21,11 +24,47 @@
                         <td><%= row.nom %></td>
                         <td><%= row.marque %></td>
                         <td><%= row.nombre %></td>
+                        <td><%= row.prix %>$</td>
+                        <td><%= row.prix * row.nombre %>$</td>
+                        <td colspan="2">
+                            <div class="row">
+                                <form action="/panier/modifier/<%= row.id_produit %>" method="POST">
+                                    <div class="row">
+                                        <input type="hidden" name="id_produit" value="<%= row.id_produit %>"/>
+                                        <div style="width: 60px;">
+                                            <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="30" placeholder="<%= row.nombre %>">
+                                        </div>
+                                        <div class="col">
+                                            <input type="submit" class="btn btn-warning btn-md" id="<%= row.id_produit %>" value="Modifier"/>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form action="/panier/enlever/<%= row.id_produit %>" method="POST">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="hidden" name="id_produit" value="<%= row.id_produit %>"/>
+                                            <input type="submit" class="btn btn-danger btn-md" id="<%= row.id_produit %>" value="Enlever"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
-                
+                    <% total += row.prix * row.nombre %>
                 <% }) %>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td span>
+                            <b><%= total %>$</b>
+                        </td>
+                    </tr>
+                </tfoot>
             </tbody>
-       
         </table>
         
 
