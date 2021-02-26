@@ -70,9 +70,21 @@
 
     </div>
 <% }else if(!connexion) {%>
-    <p><strong> Veuillez vous connecter pour acceder au panier </strong></p>
+    <div class="container">
+        <div class="row align-middle">
+            <div class="col-6 mx-auto milieu d-flex align-self-center">
+                <h1><strong> Veuillez vous connecter pour acceder au panier </strong></h1>            
+            </div>
+        </div>
+    </div>
 <% } else { %>
-    <p><strong> Vous n'avez pas de produits dans votre panier </strong></p>
+    <div class="container">
+        <div class="row align-middle">
+            <div class="col-6 mx-auto milieu d-flex align-self-center">
+                <h1><strong> Vous n'avez pas de produits dans votre panier </strong></h1>
+            </div>
+        </div>
+    </div>
 <% } %>
 
 
