@@ -7,12 +7,12 @@
             <thead>
                 <tr class="bg-info">
                     <th style="width: 5%;">Image</th>
-                    <th style="width: 10%;">Produit</th>
-                    <th style="width: 10%;">Marque</th>
-                    <th style="width: 11%;">Nombre</th>
-                    <th style="width: 11%;">Prix par unité</th>
-                    <th style="width: 11%;">Prix total</th>
-                    <th colspan="2" style="width: 18%; text-align:center;">Actions</th>
+                    <th style="width: auto;">Produit</th>
+                    <th style="width: auto">Marque</th>
+                    <th style="width: auto">Nombre</th>
+                    <th style="width: auto;">Prix par unité</th>
+                    <th style="width: auto">Prix total</th>
+                    <th colspan="2" style="width: 25%; text-align:center;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,10 +24,10 @@
                         <td><%= row.nom %></td>
                         <td><%= row.marque %></td>
                         <td><%= row.nombre %></td>
-                        <td><%= row.prix %>$</td>
-                        <td><%= row.prix * row.nombre %>$</td>
+                        <td><%= row.prix.toFixed(2) %>$</td>
+                        <td><%= (row.prix * row.nombre).toFixed(2) %>$</td>
                         <td colspan="2">
-                            <div class="row">
+                            <div class="row container" style="display: flex; justify-content: center;">
                                 <form action="/panier/modifier/<%= row.id_produit %>" method="POST">
                                     <div class="row">
                                         <input type="hidden" name="id_produit" value="<%= row.id_produit %>"/>
@@ -50,7 +50,7 @@
                             </div>
                         </td>
                     </tr>
-                    <% total += row.prix * row.nombre %>
+                    <% total += (row.prix * row.nombre) %>
                 <% }) %>
                 <tfoot>
                     <tr>
@@ -60,8 +60,10 @@
                         <td></td>
                         <td></td>
                         <td span>
-                            <b><%= total %>$</b>
+                            <b><%= total.toFixed(2) %>$</b>
                         </td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tfoot>
             </tbody>
