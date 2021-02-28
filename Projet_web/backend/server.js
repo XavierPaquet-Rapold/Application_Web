@@ -232,7 +232,6 @@ app.get('/logout',  function (req, res, next)  {
         if (err) {
            next(err);
         }
-              
         res.status(204).send();
         });
     } else {
