@@ -34,6 +34,7 @@ app.set('view engine', 'ejs');
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/tether/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/js', express.static(__dirname + '/script'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css', express.static(__dirname + '/style'));
 
@@ -65,21 +66,6 @@ app.get('/', function (req, res) {
 });
 
 /*
-pour generer la page de connexion
-*/
-app.get('/connexion', function (req, res) {
-    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
-        err, result) {
-        res.render('pages/connexion.ejs', {
-            siteTitle: siteTitle,
-            pageTitle: "Connexion",
-            items: result,
-            connexion: req.session.loggedin
-        });
-    });
-});
-
-/*
 pour generer la page de categorie
 */
 app.get('/categorie/:id', function (req, res) {
@@ -93,7 +79,7 @@ app.get('/categorie/:id', function (req, res) {
                 items: result[1],
                 connexion: req.session.loggedin
             });
-        });
+    });
 });
 
 /*
@@ -114,10 +100,82 @@ app.get('/produit/:id', function (req, res) {
             });
         });
 });
+
+/*
+pour generer la page de panier
+*/
+app.get('/panier', function (req, res) {
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;" + 
+    " SELECT produit.id_produit, panier.nombre, produit.image, produit.nom, produit.marque, produit.prix FROM panier, produit WHERE utilisateur_id_utilisateur = ? "+
+    "AND panier.produit_id_produit = produit.id_produit;", 
+    [req.session.id_utilisateur],
+
+    function (err, result) {
+        res.render('pages/panier.ejs', {
+            siteTitle: siteTitle,
+            pageTitle: "Panier",
+            items: result[0],
+            outils: result[1],
+            connexion: req.session.loggedin
+        });
+    });
+});
+
+/*
+pour generer la page de connexion
+*/
+app.get('/connexion', function (req, res) {
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
+        err, result) {
+        res.render('pages/connexion.ejs', {
+            siteTitle: siteTitle,
+            pageTitle: "Connexion",
+            items: result,
+            connexion: req.session.loggedin
+        });
+    });
+});
+
+/*
+pour generer la page de creation de compte
+*/
+app.get('/creation', function (req, res) {
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
+        function (err, result) {
+            res.render('pages/creation.ejs', {
+                siteTitle: siteTitle,
+                pageTitle: "Creation de compte",
+                items: result,
+                connexion: req.session.loggedin
+            });
+        });
+});
+
+/**
+ * get methode : poure fermer la session de l'utilisateur
+ */
+app.get('/logout',  function (req, res, next)  {
+    if (req.session.loggedin) {
+        // delete session object
+        req.session.destroy(function (err) {
+            if (err) {
+                next(err);
+            }
+            res.redirect(req.get('referer'));
+        });
+    } else {
+        
+        res.json({
+            status:false,
+            message:'there are some error with query'
+        })
+        
+    }
+});
+
 /*
 pour ajouter un produit au panier
 */
-
 app.post('/produit/:id', function (req, res) {
     /* get the record base on ID
     */
@@ -135,26 +193,6 @@ app.post('/produit/:id', function (req, res) {
         
         res.status(204).send();
     }
-});
-
-/*
-pour generer la page de panier
-*/
-app.get('/panier', function (req, res) {
-        con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;" + 
-        " SELECT produit.id_produit, panier.nombre, produit.image, produit.nom, produit.marque, produit.prix FROM panier, produit WHERE utilisateur_id_utilisateur = ? "+
-        "AND panier.produit_id_produit = produit.id_produit;", 
-        [req.session.id_utilisateur],
-
-        function (err, result) {
-            res.render('pages/panier.ejs', {
-                siteTitle: siteTitle,
-                pageTitle: "Panier",
-                items: result[0],
-                outils: result[1],
-                connexion: req.session.loggedin
-            });
-        });
 });
 
 /*
@@ -190,20 +228,7 @@ app.post('/panier/modifier/:id', function (req, res) {
     }
 });
 
-/*
-pour generer la page de creation de compte
-*/
-app.get('/creation', function (req, res) {
-    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC",
-        function (err, result) {
-            res.render('pages/creation.ejs', {
-                siteTitle: siteTitle,
-                pageTitle: "Creation de compte",
-                items: result,
-                connexion: req.session.loggedin
-            });
-        });
-});
+
 
 /**
  * Reception de connexion et mise en memoire
@@ -226,30 +251,6 @@ app.post('/connexion', function(req, res) {
         res.status(204).send();
     }
 });
-
-/**
- * get methode : poure fermer la session de l'utilisateur
- */
-app.get('/logout',  function (req, res, next)  {
-    if (req.session.loggedin) {
-        // delete session object
-        req.session.destroy(function (err) {
-            if (err) {
-                next(err);
-            }
-            res.redirect(req.get('referer'));
-        });
-    } else {
-        
-        res.json({
-            status:false,
-            message:'there are some error with query'
-        })
-        
-    }
-  });
-
-  
 
 /**
  * post methode to date : pour ajouter un utilisateur a la BD
