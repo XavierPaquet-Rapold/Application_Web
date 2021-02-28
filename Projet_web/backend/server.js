@@ -138,7 +138,8 @@ pour generer la page de panier
 */
 app.get('/panier', function (req, res) {
         con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;" + 
-        " SELECT panier.nombre, produit.image, produit.nom, produit.marque FROM panier, produit WHERE utilisateur_id_utilisateur = ? AND panier.produit_id_produit = produit.id_produit;", 
+        " SELECT produit.id_produit, panier.nombre, produit.image, produit.nom, produit.marque, produit.prix FROM panier, produit WHERE utilisateur_id_utilisateur = ? "+
+        "AND panier.produit_id_produit = produit.id_produit;", 
         [req.session.id_utilisateur],
 
         function (err, result) {
@@ -150,6 +151,39 @@ app.get('/panier', function (req, res) {
                 connexion: req.session.loggedin
             });
         });
+});
+
+/*
+Enlever le produit du panier
+*/
+app.post('/panier/enlever/:id', function (req, res) {
+    var id_produit = req.body.id_produit;
+    if(req.session.loggedin){
+        con.query("DELETE FROM panier WHERE produit_id_produit = ? AND utilisateur_id_utilisateur = ?", [id_produit, req.session.id_utilisateur],
+        function (err, result) {
+            if (err) throw err;
+            res.redirect('/panier');
+        });
+    }else{
+        res.status(204).send();
+    }
+});
+
+/*
+Modifier le nombre d'un produit
+*/
+app.post('/panier/modifier/:id', function (req, res) {
+    var id_produit = req.body.id_produit;
+    var nombre = req.body.quantity;
+    if(req.session.loggedin){
+        con.query("UPDATE panier SET nombre = ? WHERE produit_id_produit = ? AND utilisateur_id_utilisateur = ?", [nombre, id_produit, req.session.id_utilisateur],
+        function (err, result) {
+            if (err) throw err;
+            res.redirect('/panier');
+        });
+    }else{
+        res.status(204).send();
+    }
 });
 
 /*
@@ -207,6 +241,8 @@ app.get('/logout',  function (req, res, next)  {
         
     }
   });
+
+  
 
 /**
  * post methode to date : pour ajouter un utilisateur a la BD
