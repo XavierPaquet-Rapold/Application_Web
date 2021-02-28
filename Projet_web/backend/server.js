@@ -124,9 +124,11 @@ app.post('/produit/:id', function (req, res) {
         con.query("INSERT INTO panier (produit_id_produit, utilisateur_id_utilisateur, nombre) VALUES (?, ?, ?);", [id_produit, req.session.id_utilisateur, quantite], 
         function (err, result) {
             if (err) throw err;
+
             res.status(204).send();
         });
     }else{
+        
         res.status(204).send();
     }
 });
