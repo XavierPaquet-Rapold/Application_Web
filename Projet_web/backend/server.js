@@ -58,7 +58,8 @@ app.get('/', function (req, res) {
         res.render('pages/index', {
             siteTitle: siteTitle,
             pageTitle: "Page Principale",
-            items: result
+            items: result,
+            connexion: req.session.loggedin
         });
     });
 });
@@ -72,7 +73,8 @@ app.get('/connexion', function (req, res) {
         res.render('pages/connexion.ejs', {
             siteTitle: siteTitle,
             pageTitle: "Connexion",
-            items: result
+            items: result,
+            connexion: req.session.loggedin
         });
     });
 });
@@ -88,7 +90,8 @@ app.get('/categorie/:id', function (req, res) {
                 siteTitle: siteTitle,
                 pageTitle: "Categorie",
                 outils: result[0],
-                items: result[1]
+                items: result[1],
+                connexion: req.session.loggedin
             });
         });
 });
@@ -107,6 +110,7 @@ app.get('/produit/:id', function (req, res) {
                 item: result[0],
                 outils: result[1],
                 items: result[2],
+                connexion: req.session.loggedin
             });
         });
 });
@@ -195,7 +199,8 @@ app.get('/creation', function (req, res) {
             res.render('pages/creation.ejs', {
                 siteTitle: siteTitle,
                 pageTitle: "Creation de compte",
-                items: result
+                items: result,
+                connexion: req.session.loggedin
             });
         });
 });
@@ -227,16 +232,19 @@ app.post('/connexion', function(req, res) {
  */
 app.get('/logout',  function (req, res, next)  {
     if (req.session.loggedin) {
-      // delete session object
-      req.session.destroy(function (err) {
-        if (err) {
-           next(err);
-        }
-        res.status(204).send();
+        // delete session object
+        req.session.destroy(function (err) {
+            if (err) {
+                next(err);
+            }
+            res.redirect(req.get('referer'));
         });
     } else {
         
-        res.status(204).send();
+        res.json({
+            status:false,
+            message:'there are some error with query'
+        })
         
     }
   });
