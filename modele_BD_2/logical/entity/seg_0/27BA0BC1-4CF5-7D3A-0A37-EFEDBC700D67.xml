@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="27BA0BC1-4CF5-7D3A-0A37-EFEDBC700D67" name="produit">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:09 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_produit" id="9034358F-CBB1-6A6C-3ADB-B2BD15550BE2">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:17 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,0,7</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nom" id="23BF0F87-0A2B-679B-1466-0FBCD669B3A7">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:29 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prix" id="720C9EDD-9F3B-6E3A-D7EC-739180087808">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:40:31 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<ownDataTypeParameters>,2,5</ownDataTypeParameters>
+</Attribute>
+<Attribute name="modele" id="966ED089-739C-6130-5E75-A6012195B3FE">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:41:27 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="marque" id="15C0EA6D-CB68-B711-358B-B0812CFE2883">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:42:00 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="image" id="B95FD985-C040-D893-9470-AD8651BDA6D8">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:42:39 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_categorie" id="ABF41A01-389C-B525-BDF7-94058A5EEA16">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:11:16 UTC</createdTime>
+<generatorID>C661C70D-5C9C-75D0-0E17-0137024DBDC0</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<referedAttribute>25574B76-AC5E-12F7-B0C2-97A66951B8FC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_categorie1" id="6E8C879C-2461-9234-9F6B-8BC9AFAED343">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:14:16 UTC</createdTime>
+<generatorID>825749B2-CA76-15F6-3F1E-E4D83C7AA916</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<referedAttribute>25574B76-AC5E-12F7-B0C2-97A66951B8FC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C23CBF97-F883-87FB-92A9-617F0F6698E7" name="produit PK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 19:39:26 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9034358F-CBB1-6A6C-3ADB-B2BD15550BE2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

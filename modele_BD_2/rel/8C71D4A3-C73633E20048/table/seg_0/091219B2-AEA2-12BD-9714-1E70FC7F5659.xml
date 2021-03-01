@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="091219B2-AEA2-12BD-9714-1E70FC7F5659" name="magasin">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>1A8019BB-B06B-26AB-3FAD-52CB2002DC2A</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_magasin" id="E863FD69-0D68-68B3-299B-060BD0CC8B16">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>75E83FF3-CF05-1DFD-7D4E-10A94C52AA53</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<ownDataTypeParameters>,0,5</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nom" id="BA13FF99-AC8C-CECF-3BA1-8DA2C51AA3D7">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>30FD46FD-A295-4E4A-4C58-692CD2002B91</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="adresse" id="5C923278-2F5A-59E0-E917-E325C9EC4049">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>CCC6602C-A2CE-6EC3-5AF1-9726514D063A</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ville" id="3943BD89-3043-23A0-B6B0-93C0175BA427">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>20503850-8A89-4C57-D8E4-B3B996D0F788</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="code_postale" id="FB2AAAD3-3D78-E69E-B91A-698DC4D9B1A8">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>11086A5E-7524-7862-6C1E-E058FC59DE4E</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tel" id="DBDCE6FC-80A9-609C-255D-8E0D20E0761F">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>136F0821-2DD5-AE99-792C-C8473D26F13E</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="193096A9-2780-55F7-5B70-9B1F8F9BFB38" name="magasin_PK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>7E33F1F3-3071-AE08-BB32-07C18B430CC0</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E863FD69-0D68-68B3-299B-060BD0CC8B16"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

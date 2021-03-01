@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2B6D503B-7A77-5762-850D-7BA9A80DBA0B" name="utilisateur">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>F008854F-D105-31EF-CFEB-A29EC12047F1</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_utilisateur" id="717B9139-52B0-F936-6427-AC2853DB214A">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>30AE4ACD-65AE-769E-3557-75CD2FFCA48E</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,0,7</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="B8066FB8-9766-6B89-EB7B-55E58C828092">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>513FED35-0F7D-81B9-565D-17E81258FD95</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tel" id="6CDA6065-426A-0EFC-87A8-77D1EDF6BB8C">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>3B525957-DE66-0233-1D64-532535E24F24</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nom" id="63CEDBAA-90FE-9FA1-EF55-032940D00A72">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>452259FE-7087-88BE-7A47-FA8D7F50BD84</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prenom" id="30354BF8-E24E-7CE1-1A27-38D993B2C380">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>E604458A-0563-45EE-3B07-8DE22A47F9DB</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="addresse" id="48E9852C-2BB3-9E18-0BD5-D892F329C928">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>A68421B5-AA51-224B-5229-80411643D087</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ville" id="7C6591A9-7D60-FFB8-1E6C-FBA2B10DC9F6">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>A75F8EF6-F76C-7B2B-361F-412E3663E249</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="code_postale" id="6053FA6C-E326-9EAA-4BE3-A50DA4041C34">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>AAB2E480-B6A6-B491-D3AD-8539B0C90ABF</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mot_de_passe" id="11B2273F-F400-0F93-D3F5-71C8DD1EB552">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>28AEE07B-CB0F-B3CF-FF50-881E679B4FE6</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C81626F5-BB06-E0D9-9244-14164F105F5E" name="utilisateur_PK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>3CE75E87-CB0C-9197-1CCA-546F596B799B</generatorID>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="717B9139-52B0-F936-6427-AC2853DB214A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

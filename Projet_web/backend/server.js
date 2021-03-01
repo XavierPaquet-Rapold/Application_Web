@@ -164,12 +164,7 @@ app.get('/logout',  function (req, res, next)  {
             res.redirect(req.get('referer'));
         });
     } else {
-        
-        res.json({
-            status:false,
-            message:'there are some error with query'
-        })
-        
+        res.redirect(req.get('referer'));   
     }
 });
 
@@ -190,7 +185,6 @@ app.post('/produit/:id', function (req, res) {
             res.status(204).send();
         });
     }else{
-        
         res.status(204).send();
     }
 });
@@ -276,3 +270,25 @@ app.post('/creation', function (req,res){
         res.redirect(baseURL);
     });
 });
+
+/*
+fonction qui hash le mot de passe pour sécuriser les informations
+*/
+function hashPassword(password) {
+    var salt = crypto.randomBytes(128).toString('base64');
+    var iterations = 10000;
+    var hash = pbkdf2(password, salt, iterations);
+
+    return {
+        salt: salt,
+        hash: hash,
+        iterations: iterations
+    };
+}
+
+/*
+fonction qui verifie si l'essai de mot de passe est le meme que dans la base de donnee
+*/
+function isPasswordCorrect(savedHash, savedSalt, savedIterations, passwordAttempt) {
+    return savedHash == pbkdf2(passwordAttempt, savedSalt, savedIterations);
+}

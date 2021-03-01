@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="panier" directorySegmentName="seg_0" id="F14F94A6-7647-0581-E206-EF1D35917651">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:11:31 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>F008854F-D105-31EF-CFEB-A29EC12047F1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>27BA0BC1-4CF5-7D3A-0A37-EFEDBC700D67</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="nombre" id="708F22EB-AEE5-912D-D809-FD31FAAC0E9A">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:11:43 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

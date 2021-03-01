@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="inventaire" directorySegmentName="seg_0" id="80481CF3-A471-FDE9-070D-22B72FC4262E">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:11:54 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>27BA0BC1-4CF5-7D3A-0A37-EFEDBC700D67</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>1A8019BB-B06B-26AB-3FAD-52CB2002DC2A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="nombre" id="04414207-3A0E-3CED-D9E3-58D79582564B">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:12:02 UTC</createdTime>
+<ownerDesignName>modele_BD_2</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>
