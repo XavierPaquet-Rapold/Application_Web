@@ -12,12 +12,15 @@ const siteTitle = "To Spite The Amish";
 const baseURL = "http://localhost:4000";
 
 /**
-* connect to server
+* Préparation du port pour l'écoute
 */
 var server = app.listen(4000, function () {
     console.log("serveur fonctionne sur 4000");
 });
 
+/**
+ * setup de session
+ */
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -25,10 +28,9 @@ app.use(session({
 }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-module.exports = app;
 app.use(bodyParser.json());
 app.use( express.static( "views" ) );
-
+module.exports = app;
 app.set('view engine', 'ejs');
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
@@ -152,7 +154,7 @@ app.get('/creation', function (req, res) {
 });
 
 /**
- * get methode : poure fermer la session de l'utilisateur
+ * get methode : pour fermer la session de l'utilisateur
  */
 app.get('/logout',  function (req, res, next)  {
     if (req.session.loggedin) {
@@ -190,7 +192,7 @@ app.post('/produit/:id', function (req, res) {
 });
 
 /*
-Enlever le produit du panier
+Enlever un produit du panier
 */
 app.post('/panier/enlever/:id', function (req, res) {
     var id_produit = req.body.id_produit;
@@ -206,7 +208,7 @@ app.post('/panier/enlever/:id', function (req, res) {
 });
 
 /*
-Modifier le nombre d'un produit
+Modifier la quantite d'un produit dans son panier
 */
 app.post('/panier/modifier/:id', function (req, res) {
     var id_produit = req.body.id_produit;
@@ -221,8 +223,6 @@ app.post('/panier/modifier/:id', function (req, res) {
         res.status(204).send();
     }
 });
-
-
 
 /**
  * Reception de connexion et mise en memoire
@@ -270,25 +270,3 @@ app.post('/creation', function (req,res){
         res.redirect(baseURL);
     });
 });
-
-/*
-fonction qui hash le mot de passe pour sécuriser les informations
-*/
-function hashPassword(password) {
-    var salt = crypto.randomBytes(128).toString('base64');
-    var iterations = 10000;
-    var hash = pbkdf2(password, salt, iterations);
-
-    return {
-        salt: salt,
-        hash: hash,
-        iterations: iterations
-    };
-}
-
-/*
-fonction qui verifie si l'essai de mot de passe est le meme que dans la base de donnee
-*/
-function isPasswordCorrect(savedHash, savedSalt, savedIterations, passwordAttempt) {
-    return savedHash == pbkdf2(passwordAttempt, savedSalt, savedIterations);
-}
