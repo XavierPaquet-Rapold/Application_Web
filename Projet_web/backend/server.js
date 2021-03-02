@@ -228,7 +228,7 @@ app.post('/connexion', function(req, res) {
 });
 
 /**
- * get methode : poure fermer la session de l'utilisateur
+ * get methode : pour fermer la session de l'utilisateur
  */
 app.get('/logout',  function (req, res, next)  {
     if (req.session.loggedin) {
