@@ -3,7 +3,7 @@
 
 <h2>Description:</h2>
 <ul>
-    <li><b>Barre de navigation:</b> logo, menu déroulant avec les différentes catégories, nom du site, et des actions selon si l’utilisateur est connecté ou non: <li>
+    <li><b>Barre de navigation:</b> logo, menu déroulant avec les différentes catégories, nom du site, et des actions selon si l’utilisateur est connecté ou non: </li>
     <ul>
         <li>Déconnecté: lien vers les pages de connexion et de création de compte. </li>
         <li>Connecté:  menu déroulant de profil avec un lien vers le panier et pour se déconnecter </li>
