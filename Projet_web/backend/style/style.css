@@ -1,14 +1,25 @@
+/* Page qui contient le css pour toutes les pages ejs */
+
+/* 
+ css appliqué sur les tags utilisants la classe ecart, applique un écart pour les images de produit,
+  présent dans la page categorie et produit
+*/
 .ecart {
     margin: 5px;
     margin-top: 50px;
     margin-left: 55px;
 }
 
+/* 
+ css appliqué sur les tags utilisants la classe ecartIndex, applique un écart entre les différentes
+ images des catégories, présent dans la page index 
+*/
 .ecartIndex{
     margin: 5px;
     margin-top: 50px;
 }
 
+/* css appliqué sur les tags utilisants la classe rectangle, présent dans la page categorie */
 .rectangle{
     width: 450px;
     height: 375px;
@@ -18,6 +29,7 @@
 
 }
 
+/* css appliqué sur les tags utilisants la classe rectangleIndex, présent dans la page index */
 .rectangleIndex{
     width: 350px;
     height: 240px;
@@ -25,10 +37,19 @@
     vertical-align: middle;
     text-align: center;
 }
+
+/* 
+css appliqué sur les tags utilisant la classe textcss, cette classe baisse l'élément utilisant la classe,
+présent dans la page produit  
+*/
 .textcss {
     margin-top: 20px;
 }
 
+/* 
+css appliqué sur les tags utilisant la classe milieu, cette classe place l'élément au milieu de l'écran,
+ présent dans la page categorie, connexion, index, panier et produit 
+*/
 .milieu {
     position: fixed;
     top: 50%;
@@ -36,50 +57,46 @@
     transform: translate(-50%, -50%);
 }
 
+/* css appliqué sur les éléments utilisant la classe topnav-centered et contient un élément a, présent dans la page navbar */
 .topnav-centered a {
     float: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-.milieuRelatif{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0%);
 }
 
+/* css appliqué sur tous les tags a, présent dans la page categorie, index, produit et navbar */
 a {
     color: black;
 }
 
+/* applique une couleur de background sur le hover des tags a */
 a:hover {
     color: #000;
     text-decoration: none;
 }
 
+/* css appliqué sur les headers de table, présent dans la page panier et produit */
 th {
     color: rgb(8, 51, 103);
 }
 
+/* css appliqué sur les données de table, présent dans la page panier et produit */
 td {
     color: rgb(188, 222, 243);
 }
-h2{
+
+/* css appliqué sur les tags h2, présent dans la page connexion */
+h2 {
     background-color: #B0FFFF;
     padding: 30px 35px;
     margin: -10px -50px;
     text-align:center;
     border-radius: 5px 5px 0 0;
 }
-hr{
-    margin: 10px -50px;
-    border: 0;
-    border-top: 1px solid #00CCCC;
-    margin-bottom: 40px;
-}
+
+/* css qui s'applique sur le container connexion, présent dans la page connexion */
 div.container.connexion{
     width: 600px;
     height: 400px;
@@ -88,6 +105,7 @@ div.container.connexion{
     margin-left: 50px;
 }
     
+/* css appliqué sur la div utilisant la classe main, présent dans la page connexion */
 div.main{
     width: 600px;
     padding: 10px 50px 50px;
@@ -98,6 +116,7 @@ div.main{
     margin-top:25px;
 }
 
+/* css appliqué sur les inputs de type text et password, présent dans la page connexion et creation */
 input[type=text],input[type=password]{
     width: 100%;
     height: 40px;
@@ -109,6 +128,8 @@ input[type=text],input[type=password]{
     font-size: 16px;
     border-radius: 5px;
 }
+
+/* css appliqué sur tous les labels, présent dans la page connexion, creation et produit */
 label{
     color: #330000;
     text-shadow: 0 1px 0 #fff;
@@ -116,23 +137,8 @@ label{
     font-weight: bold;
     margin-top: 15px;
 }
-center{
-    font-size:32px;
-}
-.note{
-    color:red;
-}
-.valid{
-    color:green;
-}
-.back{
-    text-decoration: none;
-    border: 1px solid rgb(0, 143, 255);
-    background-color: rgb(0, 214, 255);
-    padding: 3px 20px;
-    border-radius: 2px;
-    color: black;
-}
+
+/* css appliqué sur la class button1, présent dans la page connexion */
 input[type=submit].button3{
     font-size: 16px;
     background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
@@ -145,9 +151,13 @@ input[type=submit].button3{
     padding: 10px 0;
     outline:none;
 }
+
+/* applique une couleur de background sur le hover de la class button3 */
 input[type=submit].button3:hover{
     background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
 }
+
+/* css appliqué sur la class button1, présent dans la page connexion */
 input[type=button].button1{
     margin-top: 15px;
     font-size: 16px;
@@ -161,23 +171,8 @@ input[type=button].button1{
     padding: 10px 0;
     outline:none;
 }
+
+/* applique une couleur de background sur le hover de la class button1 */
 input[type=button].button1:hover{
-    background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
-}
-input[type=submit].button2{
-    font-size: 16px;
-    background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
-    border: 1px solid #000000;
-    color: #4E4D4B;
-    font-weight: bold;
-    cursor: pointer;
-    width: 75%;
-    border-radius: 5px;
-    padding: 10px 0;
-    outline:none;
-    margin-left: 500px;
-    
-}
-input[type=submit].button2:hover{
     background: linear-gradient(#00CCCC 5%, #B0FFFF 100%);
 }
