@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA64C711-5F9D-B804-CD28-95A4AA595333" name="panier">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="produit_id_produit" id="6F5BCB2F-6CBF-E4F5-BD7B-D584FFF24036">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,0,7</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BB93FC0B-1E09-4F9D-6969-0FAD7803465D" referredColumn="C6EDD0B8-49C5-E033-2716-36EF41C2C85A"/>
+</associations>
+</Column>
+<Column name="utilisateur_id_utilisateur" id="65928CD6-6FBF-A90A-498D-428AB2B64362">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,0,7</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CF8878F8-F0D0-C9AA-1574-FC8FEC7AA668" referredColumn="717B9139-52B0-F936-6427-AC2853DB214A"/>
+</associations>
+</Column>
+<Column name="nombre" id="B976C933-D30D-2567-AC69-28EF51DB8DA1">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:34:27 UTC</createdTime>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,0,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ED46A5D0-AECB-B97C-B867-97F34BB814FC" name="panier_PK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6F5BCB2F-6CBF-E4F5-BD7B-D584FFF24036"/>
+<colUsage columnID="65928CD6-6FBF-A90A-498D-428AB2B64362"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6E64F67F-8093-5FB8-81EF-3D7123A5360D" name="panier_produit_FK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>78058C83-90FE-F31E-94E2-DAE9445265EB</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6F5BCB2F-6CBF-E4F5-BD7B-D584FFF24036"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C22FE40A-BFD5-16B1-74BE-A354C0B39BD0" name="panier_utilisateur_FK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-02-10 20:25:49 UTC</createdTime>
+<generatorID>78058C83-90FE-F31E-94E2-DAE9445265EB</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65928CD6-6FBF-A90A-498D-428AB2B64362"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,166 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BE7A64FB-ABE9-0BD3-107C-66DF5F0D7947" name="utilisateur">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>2B6D503B-7A77-5762-850D-7BA9A80DBA0B</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id utilisateur" id="5BC6499D-E364-97A2-B6F6-48EF56CD64D2">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>717B9139-52B0-F936-6427-AC2853DB214A</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,0,7</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="56BF8E21-C575-995B-6325-81D8CF62EDE4">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>B8066FB8-9766-6B89-EB7B-55E58C828092</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tel" id="C2E96458-D77D-2397-2660-55082434EE25">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>6CDA6065-426A-0EFC-87A8-77D1EDF6BB8C</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nom" id="A6BB0904-8AE7-BA06-5287-CAABFA9E9803">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>63CEDBAA-90FE-9FA1-EF55-032940D00A72</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prenom" id="40C6EFE1-85A8-12B9-4347-74BF944DC609">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>30354BF8-E24E-7CE1-1A27-38D993B2C380</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="addresse" id="9AE5EB03-E02F-2382-3A8B-646A84DF2F7F">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>48E9852C-2BB3-9E18-0BD5-D892F329C928</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ville" id="E99A26B2-DBAA-372F-35EA-0CB0D8045408">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>7C6591A9-7D60-FFB8-1E6C-FBA2B10DC9F6</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="code postale" id="959DDD65-C283-22B0-DC1E-9EB99B3EE916">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>6053FA6C-E326-9EAA-4BE3-A50DA4041C34</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mot de passe" id="28C428CF-A6FB-28B9-3FDA-856D3DA8AAD7">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>11B2273F-F400-0F93-D3F5-71C8DD1EB552</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C4A3BC0D-1056-8C3C-D393-8ABF76BDFC6A" name="utilisateur PK">
+<createdBy>xpaqu</createdBy>
+<createdTime>2021-03-01 18:18:32 UTC</createdTime>
+<generatorID>C81626F5-BB06-E0D9-9244-14164F105F5E</generatorID>
+<ownerDesignName>BD_web_3</ownerDesignName>
+<engineerTo>
+<item key="8C71D4A3-7C70-6FCB-81D8-C73633E20048" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5BC6499D-E364-97A2-B6F6-48EF56CD64D2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

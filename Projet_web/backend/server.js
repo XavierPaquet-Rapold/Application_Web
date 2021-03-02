@@ -12,12 +12,15 @@ const siteTitle = "To Spite The Amish";
 const baseURL = "http://localhost:4000";
 
 /**
-* connect to server
+* Préparation du port pour l'écoute
 */
 var server = app.listen(4000, function () {
     console.log("serveur fonctionne sur 4000");
 });
 
+/**
+ * setup de session
+ */
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -25,15 +28,15 @@ app.use(session({
 }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-module.exports = app;
 app.use(bodyParser.json());
 app.use( express.static( "views" ) );
-
+module.exports = app;
 app.set('view engine', 'ejs');
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/tether/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/js', express.static(__dirname + '/script'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css', express.static(__dirname + '/style'));
 
@@ -65,21 +68,6 @@ app.get('/', function (req, res) {
 });
 
 /*
-pour generer la page de connexion
-*/
-app.get('/connexion', function (req, res) {
-    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
-        err, result) {
-        res.render('pages/connexion.ejs', {
-            siteTitle: siteTitle,
-            pageTitle: "Connexion",
-            items: result,
-            connexion: req.session.loggedin
-        });
-    });
-});
-
-/*
 pour generer la page de categorie
 */
 app.get('/categorie/:id', function (req, res) {
@@ -93,7 +81,7 @@ app.get('/categorie/:id', function (req, res) {
                 items: result[1],
                 connexion: req.session.loggedin
             });
-        });
+    });
 });
 
 /*
@@ -114,80 +102,40 @@ app.get('/produit/:id', function (req, res) {
             });
         });
 });
-/*
-pour ajouter un produit au panier
-*/
-
-app.post('/produit/:id', function (req, res) {
-    /* get the record base on ID
-    */
-
-    var quantite = req.body.quantity;
-    var id_produit = req.body.id_produit;
-    if(req.session.loggedin){
-        con.query("INSERT INTO panier (produit_id_produit, utilisateur_id_utilisateur, nombre) VALUES (?, ?, ?);", [id_produit, req.session.id_utilisateur, quantite], 
-        function (err, result) {
-            if (err) throw err;
-
-            res.status(204).send();
-        });
-    }else{
-        
-        res.status(204).send();
-    }
-});
 
 /*
 pour generer la page de panier
 */
 app.get('/panier', function (req, res) {
-        con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;" + 
-        " SELECT produit.id_produit, panier.nombre, produit.image, produit.nom, produit.marque, produit.prix FROM panier, produit WHERE utilisateur_id_utilisateur = ? "+
-        "AND panier.produit_id_produit = produit.id_produit;", 
-        [req.session.id_utilisateur],
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC;" + 
+    " SELECT produit.id_produit, panier.nombre, produit.image, produit.nom, produit.marque, produit.prix FROM panier, produit WHERE utilisateur_id_utilisateur = ? "+
+    "AND panier.produit_id_produit = produit.id_produit;", 
+    [req.session.id_utilisateur],
 
-        function (err, result) {
-            res.render('pages/panier.ejs', {
-                siteTitle: siteTitle,
-                pageTitle: "Panier",
-                items: result[0],
-                outils: result[1],
-                connexion: req.session.loggedin
-            });
+    function (err, result) {
+        res.render('pages/panier.ejs', {
+            siteTitle: siteTitle,
+            pageTitle: "Panier",
+            items: result[0],
+            outils: result[1],
+            connexion: req.session.loggedin
         });
+    });
 });
 
 /*
-Enlever le produit du panier
+pour generer la page de connexion
 */
-app.post('/panier/enlever/:id', function (req, res) {
-    var id_produit = req.body.id_produit;
-    if(req.session.loggedin){
-        con.query("DELETE FROM panier WHERE produit_id_produit = ? AND utilisateur_id_utilisateur = ?", [id_produit, req.session.id_utilisateur],
-        function (err, result) {
-            if (err) throw err;
-            res.redirect('/panier');
+app.get('/connexion', function (req, res) {
+    con.query("SELECT * FROM produit_catégorie ORDER BY id_catégorie ASC", function (
+        err, result) {
+        res.render('pages/connexion.ejs', {
+            siteTitle: siteTitle,
+            pageTitle: "Connexion",
+            items: result,
+            connexion: req.session.loggedin
         });
-    }else{
-        res.status(204).send();
-    }
-});
-
-/*
-Modifier le nombre d'un produit
-*/
-app.post('/panier/modifier/:id', function (req, res) {
-    var id_produit = req.body.id_produit;
-    var nombre = req.body.quantity;
-    if(req.session.loggedin){
-        con.query("UPDATE panier SET nombre = ? WHERE produit_id_produit = ? AND utilisateur_id_utilisateur = ?", [nombre, id_produit, req.session.id_utilisateur],
-        function (err, result) {
-            if (err) throw err;
-            res.redirect('/panier');
-        });
-    }else{
-        res.status(204).send();
-    }
+    });
 });
 
 /*
@@ -203,6 +151,77 @@ app.get('/creation', function (req, res) {
                 connexion: req.session.loggedin
             });
         });
+});
+
+/**
+ * get methode : pour fermer la session de l'utilisateur
+ */
+app.get('/logout',  function (req, res, next)  {
+    if (req.session.loggedin) {
+        // delete session object
+        req.session.destroy(function (err) {
+            if (err) {
+                next(err);
+            }
+            res.redirect(req.get('referer'));
+        });
+    } else {
+        res.redirect(req.get('referer'));   
+    }
+});
+
+/*
+pour ajouter un produit au panier
+*/
+app.post('/produit/:id', function (req, res) {
+    /* get the record base on ID
+    */
+
+    var quantite = req.body.quantity;
+    var id_produit = req.body.id_produit;
+    if(req.session.loggedin){
+        con.query("INSERT INTO panier (produit_id_produit, utilisateur_id_utilisateur, nombre) VALUES (?, ?, ?);", [id_produit, req.session.id_utilisateur, quantite], 
+        function (err, result) {
+            if (err) throw err;
+
+            res.status(204).send();
+        });
+    }else{
+        res.status(204).send();
+    }
+});
+
+/*
+Enlever un produit du panier
+*/
+app.post('/panier/enlever/:id', function (req, res) {
+    var id_produit = req.body.id_produit;
+    if(req.session.loggedin){
+        con.query("DELETE FROM panier WHERE produit_id_produit = ? AND utilisateur_id_utilisateur = ?", [id_produit, req.session.id_utilisateur],
+        function (err, result) {
+            if (err) throw err;
+            res.redirect('/panier');
+        });
+    }else{
+        res.status(204).send();
+    }
+});
+
+/*
+Modifier la quantite d'un produit dans son panier
+*/
+app.post('/panier/modifier/:id', function (req, res) {
+    var id_produit = req.body.id_produit;
+    var nombre = req.body.quantity;
+    if(req.session.loggedin){
+        con.query("UPDATE panier SET nombre = ? WHERE produit_id_produit = ? AND utilisateur_id_utilisateur = ?", [nombre, id_produit, req.session.id_utilisateur],
+        function (err, result) {
+            if (err) throw err;
+            res.redirect('/panier');
+        });
+    }else{
+        res.status(204).send();
+    }
 });
 
 /**
@@ -226,30 +245,6 @@ app.post('/connexion', function(req, res) {
         res.status(204).send();
     }
 });
-
-/**
- * get methode : pour fermer la session de l'utilisateur
- */
-app.get('/logout',  function (req, res, next)  {
-    if (req.session.loggedin) {
-        // delete session object
-        req.session.destroy(function (err) {
-            if (err) {
-                next(err);
-            }
-            res.redirect(req.get('referer'));
-        });
-    } else {
-        
-        res.json({
-            status:false,
-            message:'there are some error with query'
-        })
-        
-    }
-  });
-
-  
 
 /**
  * post methode to date : pour ajouter un utilisateur a la BD
