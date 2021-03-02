@@ -253,18 +253,19 @@ app.post('/creation', function (req,res){
     /**
      * get the record base on ID
      */
-    var postable = req.body.Postale.split(" ").join("");
+    var postale = req.body.Postale.split(" ").join("");
+    var tel = req.body.tel.split("-").join("");
     var query = "INSERT INTO utilisateur(email, tel, nom, prenom, addresse, ville, code_postale, mot_de_passe) VALUES(";
         query += " '"+req.body.email+"',"; 
-        query += " '"+req.body.tel+"',"; 
+        query += " '"+tel+"',"; 
         query += " '"+req.body.Nom+"',"; 
         query += " '"+req.body.Prenom+"',";
-        query += " '"+req.body.adresse+"',"; 
+        query += " '"+req.body.Adresse+"',"; 
         query += " '"+req.body.ville+"',";
-        query += " '"+postable+"',";
+        query += " '"+postale+"',";
         query += " '"+req.body.password+"')";
        
-    
+    console.log(query);
     con.query(query, function(err,result){
         if(err) throw err;
         res.redirect(baseURL);
