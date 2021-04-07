@@ -1,4 +1,15 @@
 /* Page qui contient le css pour toutes les pages ejs */
+/*
+ccs appliqué sur le API de Google pour la map qui montrera les localisations de nos magasins.
+*/
+.mapCSS{
+    height:400px;
+    width: 550px;
+    float: right;
+    margin-right: 5px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
 
 /* 
  css appliqué sur les tags utilisants la classe ecart, applique un écart pour les images de produit,
